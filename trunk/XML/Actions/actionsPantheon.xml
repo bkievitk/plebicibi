@@ -1,0 +1,72 @@
+// RESOURCE DEFINITIONS
+
+<def>
+	<value>0</value>
+	<name>Wilderness</name>
+</def>
+
+<def>
+	<value>1</value>
+	<name>Warriors</name>
+</def>
+
+<def>
+	<value>2</value>
+	<name>Farmers</name>
+</def>
+
+<def>
+	<value>3</value>
+	<name>Priests</name>
+</def>
+
+<def>
+	<value>4</value>
+	<name>VP</name>
+</def>
+
+<actions>
+
+	// SANCTION ABILITIES
+		
+	// BUILD ABILITIES / ACTIONS
+	
+	// BUILDING IMPROVEMENTS
+
+	// PLANT ABILITIES
+	
+	// HARVEST ABILITIES
+
+	// AMBITION ATTAINMENT ABILITIES
+
+	// INFORMATION GATHERING ABILITIES
+
+		// FUTURE FORECASTING 
+
+		// SPYING
+
+	// TRAINING ABILITIES
+
+</actions>
+
+// EVENTS
+
+<events>
+
+	<event>
+		<name>tooManyWarriors</name>
+		<description></description>
+		<onTurn>setValue(overshoot,minusInt(getCommunalResourceCount($Warriors),plusInt(getCommunalResourceCount($Priests),getCommunalResourceCount($Farmers))));if(greaterThanInt(getValue(overshoot),0),sendMessage(There is war!),sendMessage(There is peace.));for(setValue(i,0),lessThanInt(getValue(i),getValue(overshoot)),plusPlus(i),if(equalTo(getRandom(2),0),and(sendMessage( resource destroyed),if(equalTo(swapNotType($Warriors,$Wilderness,1),1),nullOp(),swapType($Warriors,$Wilderness,1)))));</onTurn>
+	</event>
+	<event>
+		<name>notEnoughFarmers</name>
+		<description></description>
+		<onTurn>setValue(overshoot,minusInt(plusInt(getCommunalResourceCount($Priests),getCommunalResourceCount($Warriors)),timesInt(getCommunalResourceCount($Farmers),2)));if(greaterThanInt(getValue(overshoot),0),sendMessage(There is famine!),sendMessage(There is food.));for(setValue(i,0),lessThanInt(getValue(i),getValue(overshoot)),plusPlus(i),if(equalTo(getRandom(2),0),and(sendMessage(  resource destroyed),swapNotType($Wilderness,$Wilderness,1))),nullOp());</onTurn>
+	</event>
+	<event>
+		<name>notEnoughPriests</name>
+		<description></description>
+		<onTurn></onTurn>
+	</event>
+		
+</events>

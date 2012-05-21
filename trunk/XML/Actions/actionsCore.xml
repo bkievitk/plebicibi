@@ -1,0 +1,55 @@
+<actions>
+
+	// SANCTION ABILITIES
+		
+	// BUILD ABILITIES / ACTIONS
+	
+	// BUILDING IMPROVEMENTS
+
+	// PLANT ABILITIES
+	
+	<action>
+		<type>plant</type>
+		<name>plant[%count%,%toPlantID%,%toPlantName%,%toReplaceID%]</name>
+		<description>Plant %count% %toPlantName%</description>
+		<effects>
+			<onPerform>swapType(%toReplaceID%,%toPlantID%,%count%);</onPerform>
+		</effects>
+		<order>1</order>
+	</action>
+	
+	// HARVEST ABILITIES
+
+
+	<action>
+		<type>harvest</type>
+		<name>harvest[%count%,%toHarvestID%,%toHarvestName%,%toReplaceID%]</name>
+		<description>Harvest %count% %toHarvestName%</description>
+		<effects>
+			<onPerform>swapTypeTake(%toReplaceID%,%toHarvestID%,%count%);</onPerform>
+		</effects>
+		<order>1</order>
+	</action>
+	
+	// AMBITION ATTAINMENT ABILITIES
+
+	<action>
+		<type>ambition</type>
+		<name>score[%count%,%landID%,%landName%]</name>
+		<description>Convert 1 %landName% into %count% victory points.</description>
+		<selectable>false</selectable>
+		<effects>
+			<onEndGame>setResourceCount($VP, timesInt(getResourceCount(%landID%),%count%));setResourceCount(%landID%, 0);</onEndGame>
+		</effects>
+		<order>0</order>
+	</action>
+	
+	// INFORMATION GATHERING ABILITIES
+
+		// FUTURE FORECASTING 
+
+		// SPYING
+
+	// TRAINING ABILITIES
+
+</actions>
