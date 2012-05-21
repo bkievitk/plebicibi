@@ -1,0 +1,156 @@
+<context>
+	
+	<def>
+		<value>0</value>
+		<name>Forest</name>
+	</def>
+
+	<def>
+		<value>1</value>
+		<name>Pumpkin</name>
+	</def>
+
+	<def>
+		<value>2</value>
+		<name>Corn</name>
+	</def>
+
+	<def>
+		<value>3</value>
+		<name>Wheat</name>
+	</def>
+
+	<def>
+		<value>4</value>
+		<name>Burned</name>
+	</def>
+
+	<def>
+		<value>5</value>
+		<name>Gold</name>
+	</def>
+	
+	<def>
+		<value>6</value>
+		<name>VP</name>
+	</def>
+
+	// Harvest, plant and score actions.
+	<include>XML\Actions\actionsCore.xml</include>
+	<include>XML\Actions\actionsGodMode.xml</include>
+	
+	// Number of players.
+	<playerCount>2</playerCount>
+	
+	// Number of turns.
+	<turns>20</turns>
+
+	<time>2000</time>
+	
+	// Define types of land.
+	
+	<landType>
+		<id>$Forest</id>
+		<image>images/forest.png</image>
+		<name>Forest</name>
+		<visible>false</visible>
+	</landType>
+	
+	<landType>
+		<id>$Pumpkin</id>
+		<image>images/pumpkin.png</image>
+		<name>Pumpkin</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>$Corn</id>
+		<image>images/corn.png</image>
+		<name>Corn</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>$Wheat</id>
+		<image>images/wheat.png</image>
+		<name>Wheat</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>$Burned</id>
+		<image>images/burned.png</image>
+		<name>Burned</name>
+		<visible>false</visible>
+	</landType>	
+	
+	<landType>
+		<id>$Gold</id>
+		<image>images/gold.png</image>
+		<name>Gold</name>
+		<visible>true</visible>
+	</landType>	
+	
+	<landType>
+		<id>$VP</id>
+		<image>images/victory.png</image>
+		<name>Victory</name>
+		<visible>true</visible>
+	</landType>	
+		
+	<board>
+		<size>3,3</size>
+		<line>0,$Forest,$Forest,$Forest</line>
+		<line>1,$Forest,$Forest,$Forest</line>
+		<line>2,$Forest,$Forest,$Forest</line>
+	</board>
+	
+	// Define actions available in this context.
+	
+	<availableActions>
+	</availableActions>
+	
+	// Define starting actions for different players.
+	
+	<playerActions>
+		<playerID>0</playerID>
+		<name>Player 0</name>
+		<description>Description 0</description>
+		<image>img.png</image>
+		<action>plant[1,$Pumpkin,pumpkin,$Forest]</action>
+		<action>plant[1,$Corn,corn,$Forest]</action>
+		<action>plant[1,$Wheat,wheat,$Forest]</action>
+		<action>harvest[1,$Forest,pumpkin,$Pumpkin]</action>
+		<action>harvest[1,$Forest,corn,$Corn]</action>
+		<action>harvest[1,$Forest,wheat,$Wheat]</action>
+		<action>score[1,$Pumpkin,pumpkin]</action>
+		<action>score[1,$Corn,corn]</action>
+		<action>score[1,$Wheat,wheat]</action>
+		<action>performScript</action>
+	</playerActions>
+	
+	<playerActions>
+		<playerID>1</playerID>
+		<name>Player 1</name>
+		<description>Description 1</description>
+		<image>img.png</image>
+		<action>plant[1,$Pumpkin,pumpkin,$Forest]</action>
+		<action>plant[1,$Corn,corn,$Forest]</action>
+		<action>plant[1,$Wheat,wheat,$Forest]</action>
+		<action>harvest[1,$Forest,pumpkin,$Pumpkin]</action>
+		<action>harvest[1,$Forest,corn,$Corn]</action>
+		<action>harvest[1,$Forest,wheat,$Wheat]</action>
+		<action>score[1,$Pumpkin,pumpkin]</action>
+		<action>score[1,$Corn,corn]</action>
+		<action>score[1,$Wheat,wheat]</action>
+		<action>performScript</action>
+	</playerActions>
+	
+	// Define events.
+	
+	// Define back story.
+		
+	<backstory>
+		A simple farm context.
+	</backstory>
+</context>

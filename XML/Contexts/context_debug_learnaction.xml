@@ -1,0 +1,93 @@
+<context>
+	
+	// Number of players.
+	<playerCount>2</playerCount>
+	
+	// Number of turns.
+	<turns>20</turns>
+
+	// Define types of land.
+	
+	<landType>
+		<id>0</id>
+		<image>images/forest.png</image>
+		<name>Forest</name>
+		<visible>false</visible>
+	</landType>
+	
+	<landType>
+		<id>1</id>
+		<image>images/pumpkin.png</image>
+		<name>Pumpkin</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>2</id>
+		<image>images/corn.png</image>
+		<name>Corn</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>3</id>
+		<image>images/wheat.png</image>
+		<name>Wheat</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>4</id>
+		<image>images/burned.png</image>
+		<name>Burned</name>
+		<visible>false</visible>
+	</landType>	
+	
+	<landType>
+		<id>5</id>
+		<image>images/gold.png</image>
+		<name>Victory</name>
+		<visible>true</visible>
+	</landType>	
+	
+	// Define actions available in this context.
+	
+	<availableActions>
+		<action>plantPumpkin[1]</action>
+		<action>plantCorn[1]</action>
+		<action>plantWheat[1]</action>
+		<action>harvestPumpkin[1]</action>
+		<action>harvestCorn[1]</action>
+		<action>harvestWheat[1]</action>
+		<action>harvestWheatReplantCorn</action>
+		<action>simpleTrain</action>
+		<action>cornConvert3Immediate<action>
+	</availableActions>
+	
+	// Define starting actions for different players.
+	
+	<playerActions>
+		<playerID>0</playerID>
+		<action>harvestCorn[2]</action>
+		<action>simpleTrain</action>
+	</playerActions>
+	
+	<playerActions>
+		<playerID>1</playerID>
+		<action>plantPumpkin[1]</action>
+		<action>plantCorn[3]</action>
+		<action>plantWheat[2]</action>
+		<action>harvestPumpkin[1]</action>
+		<action>harvestCorn[2]</action>
+		<action>harvestWheat[1]</action>
+		<action>cornConvert[2]</action>	
+	</playerActions>
+	
+	// Define events.
+	
+	// Define back story.
+		
+	<backstory>
+		A simple farm context.
+	</backstory>
+</context>

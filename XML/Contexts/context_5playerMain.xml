@@ -1,0 +1,131 @@
+<context>
+	
+	// Number of players.
+	<playerCount>5</playerCount>
+	
+	// Number of turns.
+	<turns>20</turns>
+
+	// Define types of land.
+	
+	<landType>
+		<id>0</id>
+		<image>images/forest.png</image>
+		<name>Forest</name>
+		<visible>false</visible>
+	</landType>
+	
+	<landType>
+		<id>1</id>
+		<image>images/pumpkin.png</image>
+		<name>Pumpkin</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>2</id>
+		<image>images/corn.png</image>
+		<name>Corn</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>3</id>
+		<image>images/wheat.png</image>
+		<name>Wheat</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>4</id>
+		<image>images/burned.png</image>
+		<name>Burned</name>
+		<visible>false</visible>
+	</landType>	
+	
+	<landType>
+		<id>5</id>
+		<image>images/gold.png</image>
+		<name>Victory</name>
+		<visible>true</visible>
+	</landType>	
+	
+	// Define actions available in this context.
+	
+	<availableActions>
+	</availableActions>
+	
+	<playerActions>
+		<playerID>0</playerID>
+		<action>plantPumpkin[0]</action>
+		<action>plantCorn[1]</action>
+		<action>plantWheat[0]</action>
+		<action>harvestPumpkin[4]</action>
+		<action>harvestCorn[1]</action>
+		<action>harvestWheat[4]</action>
+		<action>pumpkinConvert[0]</action>	
+		<action>cornConvert[1]</action>	
+		<action>wheatConvert[0]</action>	
+	</playerActions>
+	
+	<playerActions>
+		<playerID>1</playerID>
+		<action>plantPumpkin[1]</action>
+		<action>plantCorn[1]</action>
+		<action>plantWheat[1]</action>
+		<action>harvestPumpkin[2]</action>
+		<action>harvestCorn[3]</action>
+		<action>harvestWheat[4]</action>
+		<action>pumpkinConvert[1]</action>	
+		<action>cornConvert[1]</action>	
+		<action>wheatConvert[1]</action>	
+	</playerActions>
+	
+	<playerActions>
+		<playerID>2</playerID>
+		<action>plantPumpkin[3]</action>
+		<action>plantCorn[2]</action>
+		<action>plantWheat[2]</action>
+		<action>harvestPumpkin[0]</action>
+		<action>harvestCorn[1]</action>
+		<action>harvestWheat[1]</action>
+		<action>pumpkinConvert[0]</action>	
+		<action>cornConvert[2]</action>	
+		<action>wheatConvert[2]</action>	
+	</playerActions>
+		
+	<playerActions>
+		<playerID>3</playerID>
+		<action>plantPumpkin[0]</action>
+		<action>plantCorn[2]</action>
+		<action>plantWheat[2]</action>
+		<action>harvestPumpkin[1]</action>
+		<action>harvestCorn[0]</action>
+		<action>harvestWheat[2]</action>
+		<action>pumpkinConvert[4]</action>	
+		<action>cornConvert[0]</action>	
+		<action>wheatConvert[1]</action>	
+	</playerActions>
+	
+	<playerActions>
+		<playerID>4</playerID>
+		<action>plantPumpkin[0]</action>
+		<action>plantCorn[4]</action>
+		<action>plantWheat[0]</action>
+		<action>harvestPumpkin[1]</action>
+		<action>harvestCorn[0]</action>
+		<action>harvestWheat[2]</action>
+		<action>pumpkinConvert[2]</action>	
+		<action>cornConvert[0]</action>	
+		<action>wheatConvert[2]</action>	
+	</playerActions>
+	
+	// Define events.
+	<event>errosion</event>
+
+	// Define back story.
+		
+	<backstory>
+		A simple farm context.
+	</backstory>
+</context>

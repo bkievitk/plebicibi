@@ -1,0 +1,206 @@
+// RESOURCE DEFINITIONS
+
+
+<def>
+	<value>0</value>
+	<name>Forest</name>
+</def>
+
+<def>
+	<value>1</value>
+	<name>Pumpkin</name>
+</def>
+
+<def>
+	<value>2</value>
+	<name>Corn</name>
+</def>
+
+<def>
+	<value>3</value>
+	<name>Wheat</name>
+</def>
+
+<def>
+	<value>4</value>
+	<name>Burned</name>
+</def>
+
+<def>
+	<value>5</value>
+	<name>Gold</name>
+</def>
+
+// ABILITIES/ ACTIONS
+
+<actions>
+
+	// SANCTION ABILITIES
+
+	// BUILD ABILITIES / ACTIONS
+	
+	<action>
+		<type>build</type>
+		<name>simpleTrain</name>
+		<description>Simple training.</description>
+		<effects>
+			<onPerform>takeActionServer();</onPerform>
+		</effects>
+		<order>0</order>
+	</action>
+
+	// BUILDING IMPROVEMENTS
+
+	// PLANT ABILITIES
+	
+	<action>
+		<type>plant</type>
+		<name>plantPumpkin[%count%]</name>
+		<description>Plant %count% Pumpkin</description>
+		<effects>
+			<onPerform>swapType($Forest,$Pumpkin,%count%);</onPerform>
+		</effects>
+		<order>1</order>
+	</action>
+	
+	<action>
+		<type>plant</type>
+		<name>plantCorn[%count%]</name>
+		<description>Plant %count% Corn</description>
+		<effects>
+			<onPerform>swapType($Forest,$Corn,%count%);</onPerform>
+		</effects>
+		<order>1</order>
+	</action>
+		
+	<action>
+		<type>plant</type>
+		<name>plantWheat[%count%]</name>
+		<description>Plant %count% Wheat</description>
+		<effects>
+			<onPerform>swapType($Forest,$Wheat,%count%);</onPerform>
+		</effects>
+		<order>1</order>
+	</action>
+	
+	// HARVEST ABILITIES
+
+	<action>
+		<type>harvest</type>
+		<name>harvestPumpkin[%count%]</name>
+		<description>Harvest %count% Pumpkin</description>
+		<effects>
+			<onPerform>swapTypeTake($Pumpkin,$Forest,%count%);</onPerform>
+		</effects>
+		<order>0</order>
+	</action>
+	
+	<action>
+		<type>harvest</type>
+		<name>harvestCorn[%count%]</name>
+		<description>Harvest %count% Corn</description>
+		<effects>
+			<onPerform>swapTypeTake($Corn,$Forest,%count%);</onPerform>
+		</effects>
+		<order>0</order>
+	</action>
+	
+	<action>
+		<type>harvest</type>
+		<name>harvestWheat[%count%]</name>
+		<description>Harvest %count% Wheat</description>
+		<effects>
+			<onPerform>swapTypeTake($Wheat,$Forest,%count%);</onPerform>
+		</effects>
+		<order>0</order>
+	</action>
+	
+	<action>
+		<type>harvest</type>
+		<name>harvestWheatReplantCorn</name>
+		<description>Harvest 2 Wheat. If both are harvested, replace with 1 Corn</description>
+		<effects>
+			<onPerform>if(equalTo(swapTypeTake($Wheat,$Forest,2),2),swapType($Forest,$Corn,1));</onPerform>
+		</effects>
+		<order>0</order>
+	</action>
+	
+	// AMBITION ATTAINMENT ABILITIES
+
+	<action>
+		<type>ambition</type>
+		<name>pumpkinConvert[%count%]</name>
+		<description>Convert 1 pumpkin into %count% gold at the end of the game.</description>
+		<effects>
+			<onEndGame>setResourceCount($Gold, timesInt(getResourceCount($Pumpkin),%count%));setResourceCount($Pumpkin, 0);</onEndGame>
+		</effects>
+		<order>0</order>
+	</action>
+		
+	<action>
+		<type>ambition</type>
+		<name>cornConvert[%count%]</name>
+		<description>Convert 1 corn into %count% gold at the end of the game.</description>
+		<effects>
+			<onEndGame>setResourceCount($Gold, timesInt(getResourceCount($Corn),%count%));setResourceCount($Corn, 0);</onEndGame>
+		</effects>
+		<order>0</order>
+	</action>
+	
+	<action>
+		<type>ambition</type>
+		<name>wheatConvert[%count%]</name>
+		<description>Convert 1 wheat into %count% gold at the end of the game.</description>
+		<effects>
+			<onEndGame>setResourceCount($Gold, timesInt(getResourceCount($Wheat),%count%));setResourceCount($Wheat, 0);</onEndGame>
+		</effects>
+		<order>0</order>
+	</action>
+	
+	
+	<action>
+		<type>ambition</type>
+		<name>cornConvert3Immediate</name>
+		<description>Convert 1 corn into 3 gold as soon as this card is purchased.</description>
+		<effects>
+			<onPurchase>setResourceCount($Gold, timesInt(getResourceCount($Corn),3));setResourceCount($Corn, 0);</onPurchase>
+		</effects>
+		<order>0</order>
+	</action>
+	
+	
+	<action>
+		<type>ambition</type>
+		<name>test</name>
+		<description>Test</description>
+		<effects>
+			//<onPerform>setValue(count,0);for(setValue(i, 0),lessThanInt(getValue(i),numPlayers()),plusPlus(i),setValue(count,plusInt(getValue(count),getRandom(3))));if(greaterThanInt(getValue(count),getCommunalResourceCount($Corn)),foreach(if(equalTo(getRandom(4),0),setLand(getValue(x),getValue(y),$Burned),nullOp),nullOp());<onPerform>
+		</effects>
+		<order>0</order>
+	</action>
+	
+	
+	// INFORMATION GATHERING ABILITIES
+
+		// FUTURE FORECASTING 
+
+		// SPYING
+
+	// TRAINING ABILITIES
+
+</actions>
+
+// EVENTS
+
+<events>
+	<event>
+		<name>cornPlanter</name>
+		<description>Plants one corn every turn.</description>
+		<onTurn>swapType($Forest,$Corn,1);</onTurn>
+	</event>
+	<event>
+		<name>errosion</name>
+		<description>The errosion event.</description>
+		<onTurn>setValue(count,0);for(setValue(i, 0),lessThanInt(getValue(i),numPlayers()),plusPlus(i),setValue(count,plusInt(getValue(count),getRandom(3))));if(greaterThanInt(getValue(count),getCommunalResourceCount($Corn)),foreach(if(equalTo(getRandom(4),0),setLand(getValue(x),getValue(y),$Burned),nullOp),nullOp());</onTurn>
+	</event>	
+</events>

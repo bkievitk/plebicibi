@@ -1,0 +1,177 @@
+<context>
+	
+	<include>XML/Actions/actionsCore.xml</include>
+	<include>XML/Actions/actionsPantheon.xml</include>
+	
+	// Number of players.
+	<playerCount>6</playerCount>
+	
+	// Number of turns.
+	<turns>20</turns>
+
+	<time>-1</time>
+
+	// Define types of land.
+	
+	<landType>
+		<id>$Wilderness</id>
+		//<image>images/resources/wilderness.png</image>
+		<name>Wilderness</name>
+		<visible>false</visible>
+	</landType>
+	
+	<landType>
+		<id>$Warriors</id>
+		<image>images/resources/warriors.png</image>
+		<name>Warriors</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>$Farmers</id>
+		<image>images/resources/farmers.png</image>
+		<name>Farmers</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>$Priests</id>
+		<image>images/resources/priests.png</image>
+		<name>Priests</name>
+		<visible>true</visible>
+	</landType>
+	
+	<landType>
+		<id>$VP</id>
+		<image>images/resources/victory.png</image>
+		<name>VP</name>
+		<visible>true</visible>
+	</landType>
+	
+	// Define actions available in this context.
+	
+	<board>
+		<size>4,3</size>
+		<line>0,$Wilderness,$Wilderness,$Farmers</line>
+		<line>1,$Wilderness,$Warriors,$Farmers</line>
+		<line>2,$Wilderness,$Priests,$Farmers</line>
+		<line>3,$Wilderness,$Priests,$Farmers</line>
+	</board>
+	
+	<availableActions>
+	</availableActions>
+	
+	// Define starting actions for different players.
+	
+	<playerActions>
+		<playerID>0</playerID>
+		<name>The Green Lady</name>
+		<description>Description</description>
+		<image>images/characters/green lady.png</image>
+		<action>plant[3,$Warriors,warriors,$Wilderness]</action>
+		<action>plant[4,$Farmers,farmers,$Wilderness]</action>
+		<action>plant[3,$Priests,priests,$Wilderness]</action>
+		<action>harvest[0,$Wilderness,warriors,$Warriors]</action>
+		<action>harvest[1,$Wilderness,farmers,$Farmers]</action>
+		<action>harvest[0,$Wilderness,priests,$Priests]</action>
+		<action>score[0,$Warriors,warriors]</action>
+		<action>score[3,$Farmers,farmers]</action>
+		<action>score[0,$Priests,priests]</action>
+	</playerActions>
+	
+	<playerActions>
+		<playerID>1</playerID>
+		<name>The Red Lady</name>
+		<image>images/characters/red lady.png</image>
+		<action>plant[1,$Warriors,warriors,$Wilderness]</action>
+		<action>plant[0,$Farmers,farmers,$Wilderness]</action>
+		<action>plant[0,$Priests,priests,$Wilderness]</action>
+		<action>harvest[5,$Wilderness,warriors,$Warriors]</action>
+		<action>harvest[2,$Wilderness,farmers,$Farmers]</action>
+		<action>harvest[2,$Wilderness,priests,$Priests]</action>
+		<action>score[1,$Warriors,warriors]</action>
+		<action>score[0,$Farmers,farmers]</action>
+		<action>score[0,$Priests,priests]</action>
+	</playerActions>
+	
+	<playerActions>
+		<playerID>2</playerID>
+		<name>The Drunken God</name>
+		<image>images/characters/drunk god.png</image>
+		<action>plant[0,$Warriors,warriors,$Wilderness]</action>
+		<action>plant[2,$Farmers,farmers,$Wilderness]</action>
+		<action>plant[2,$Priests,priests,$Wilderness]</action>
+		<action>harvest[0,$Wilderness,warriors,$Warriors]</action>
+		<action>harvest[1,$Wilderness,farmers,$Farmers]</action>
+		<action>harvest[1,$Wilderness,priests,$Priests]</action>
+		<action>score[0,$Warriors,warriors]</action>
+		<action>score[2,$Farmers,farmers]</action>
+		<action>score[1,$Priests,priests]</action>
+	</playerActions>
+	
+	<playerActions>
+		<playerID>3</playerID>
+		<name>The Reaper</name>
+		<image>images/characters/Reaper.png</image>
+		<action>plant[0,$Warriors,warriors,$Wilderness]</action>
+		<action>plant[0,$Farmers,farmers,$Wilderness]</action>
+		<action>plant[0,$Priests,priests,$Wilderness]</action>
+		<action>harvest[3,$Wilderness,warriors,$Warriors]</action>
+		<action>harvest[3,$Wilderness,farmers,$Farmers]</action>
+		<action>harvest[3,$Wilderness,priests,$Priests]</action>
+		<action>score[1,$Warriors,warriors]</action>
+		<action>score[1,$Farmers,farmers]</action>
+		<action>score[1,$Priests,priests]</action>
+	</playerActions>
+	
+	<playerActions>
+		<playerID>4</playerID>
+		<name>The Oracle</name>
+		<image>images/characters/oracle.png</image>
+		<action>plant[1,$Warriors,warriors,$Wilderness]</action>
+		<action>plant[1,$Farmers,farmers,$Wilderness]</action>
+		<action>plant[3,$Priests,priests,$Wilderness]</action>
+		<action>harvest[1,$Wilderness,warriors,$Warriors]</action>
+		<action>harvest[1,$Wilderness,farmers,$Farmers]</action>
+		<action>harvest[1,$Wilderness,priests,$Priests]</action>
+		<action>score[1,$Warriors,warriors]</action>
+		<action>score[1,$Farmers,farmers]</action>
+		<action>score[3,$Priests,priests]</action>
+	</playerActions>
+	
+	<playerActions>
+		<playerID>5</playerID>
+		<name>The Tempter</name>
+		<image>images/characters/tempter.png</image>
+		<action>plant[0,$Warriors,warriors,$Wilderness]</action>
+		<action>plant[0,$Farmers,farmers,$Wilderness]</action>
+		<action>plant[0,$Priests,priests,$Wilderness]</action>
+		<action>harvest[1,$Wilderness,warriors,$Warriors]</action>
+		<action>harvest[1,$Wilderness,farmers,$Farmers]</action>
+		<action>harvest[1,$Wilderness,priests,$Priests]</action>
+		<action>score[1,$Warriors,warriors]</action>
+		<action>score[2,$Farmers,farmers]</action>
+		<action>score[3,$Priests,priests]</action>
+	</playerActions>
+	
+	// Define events.
+	
+	// Define back story.
+		
+	<backstory>
+"As flies to wanton boys are we to th' gods - they kill us for their sport."
+Shakespeare, King Lear
+
+You are a god of the ancient world.  Far below your realm among the stars, the fragile race known as humankind wanders the forests, plains, and mountains of the world.  Sometimes they speak to you, and your brothers and sisters – demanding, cajoling, begging, questioning.  They are right to do so, for their lives are in your hands, to give and to take away.
+
+And yet, you need them too.  Human belief is sweet to the gods, and human souls bring them power. For each human soul that passes into your private part of heaven, you grow stronger, and your status in the heavenly realm rises. Grow your legion of souls carefully, and you may one day aspire to rule over the other gods as they rule over humanity.
+
+The object of this game is to accumulate as many points as possible over the course of twenty turns. Each turn represents decades or perhaps centuries in human history.  During each turn, you may give the gift of life, creating more humans to populate the world, or you may gather the souls of the living up into your personal heaven, gaining points that bring you closer to victory.
+
+Human souls come in three varieties: warriors, farmers, and priests. The type of god you are will determine how many humans of each type you may create or gather up during each turn; it will also determine how many points you get for each type of soul. Do your best to gather as many souls as possible, focusing on the souls which have the greatest value for you.
+	</backstory>
+	
+	<event>tooManyWarriors</event>
+	<event>notEnoughFarmers</event>
+	<event>notEnoughPriests</event>
+</context>

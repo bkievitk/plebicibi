@@ -1,0 +1,33 @@
+<actions>
+
+	// SANCTION ABILITIES
+		
+	// BUILD ABILITIES / ACTIONS
+	
+	// BUILDING IMPROVEMENTS
+
+	// PLANT ABILITIES
+	
+	// HARVEST ABILITIES
+
+	// AMBITION ATTAINMENT ABILITIES
+
+	<action>
+		<type>ambition</type>
+		<name>performScript</name>
+		<description>Perform any script action you desire.</description>
+		<effects>
+			<onPerform>runLine(writeRead(noCompile(write(requestString(enter script)))))</onPerform>
+		</effects>
+		<order>0</order>
+	</action>
+	
+	// INFORMATION GATHERING ABILITIES
+
+		// FUTURE FORECASTING 
+
+		// SPYING
+
+	// TRAINING ABILITIES
+
+</actions>
