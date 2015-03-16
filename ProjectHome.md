@@ -1,0 +1,1 @@
+A highly modifiable computer based card game. This game uses both cooperation and competition to explore human behavior.
